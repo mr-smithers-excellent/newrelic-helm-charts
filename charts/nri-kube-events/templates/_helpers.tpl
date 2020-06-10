@@ -116,6 +116,14 @@ Return the customSecretLicenseKey
 {{- end -}}
 {{- end -}}
 
+
+{{/*
+Returns nrStaging
+*/}}
+{{- define "newrelic.nrStaging" -}}
+{{- or .Values.global.nrStaging .Values.nrStaging }}
+{{- end -}}
+
 {{/*
 Returns if the template should render, it checks if the required values
 licenseKey and cluster are set.
