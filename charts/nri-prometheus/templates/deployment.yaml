@@ -38,7 +38,7 @@ spec:
                   name: {{ include "nri-prometheus.customSecretName" . }}
                   key: {{ include "nri-prometheus.customSecretLicenseKey" . }}
                   {{- end }}
-          {{- if .Values.nrStaging }}
+          {{- if eq (include "newrelic.nrStaging" .) "true" }}
           - name: "METRIC_API_URL"
             value: "https://staging-metric-api.newrelic.com/metric/v1/infra"
           {{- end }}
